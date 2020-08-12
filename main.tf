@@ -177,6 +177,8 @@ resource "aws_lb_listener" "lb_https_listeners" {
     target_group_arn = element(aws_lb_target_group.lb_https_tgs.*.arn, count.index)
     type             = "forward"
   }
+  ssl_policy = var.ssl_policy
+  certificate_arn = var.certificate_arn
 }
 # TODO
 # ssl_policy - (Optional) The name of the SSL Policy for the listener. Required if protocol is HTTPS or TLS.

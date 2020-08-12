@@ -125,6 +125,18 @@ variable "https_ingress_prefix_list_ids" {
   default     = []
 }
 
+variable "ssl_policy" {
+  description = "(Optional) The name of the SSL Policy for the listener. Required if protocol is HTTPS or TLS."
+  type        = string
+  default     = ""
+}
+
+variable "certificate_arn" {
+  description = "(Optional) The ARN of the default SSL server certificate. Exactly one certificate is required if the protocol is HTTPS. For adding additional SSL certificates, see the aws_lb_listener_certificate resource."
+  type        = string
+  default     = ""
+}
+
 #------------------------------------------------------------------------------
 # AWS LOAD BALANCER - Target Groups
 #------------------------------------------------------------------------------
